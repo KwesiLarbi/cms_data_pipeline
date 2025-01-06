@@ -5,6 +5,7 @@ from datetime import datetime
 
 def process_monthly_enrollment_data(url):
     try:
+        print(f'[INFO]: 💻 Making request to {url}\n')
         response = requests.get(url)
         status = response.raise_for_status()
 
@@ -13,11 +14,12 @@ def process_monthly_enrollment_data(url):
             data = response.json()
 
             # extract enrollement features
+            print(f'[INFO]: 🔑 Extracting keys from json data to reference as features\n')
             features = []
             for key in data[0].keys():
                 features.append(key)
             
-            print('current features...\n')
+            print('[INFO]: 🔑 Current Features:')
 
             for feature in features:
                 print(feature)
@@ -50,6 +52,7 @@ def process_monthly_enrollment_data(url):
             df = pd.DataFrame(monthly_enrollments)
 
             # save to csv in specific location
+            print(f'\n[INFO]: 📂 Saving data from {url} as CSV in data folder\n')
             df.to_csv(file, index=False)
 
         return io.BytesIO(response.content)

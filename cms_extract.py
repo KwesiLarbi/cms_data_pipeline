@@ -1,8 +1,14 @@
 from utils import process_monthly_enrollment_data
 
 def data_pipeline(url):
-    process_monthly_enrollment_data(url)
-
+    print("[INFO]: 🕓 Starting processing for monthly enrollment data\n")
+    
+    try:
+        process_monthly_enrollment_data(url)
+        print("[SUCCESS]: ✅ Monthly Enrollment Data successfully processed \n")
+    except ValueError as e:
+        print('[FAIL]: 🟥 An error occurred in the Monthly enrollment method\n')
+        
     return 'Success'
  
 if __name__ == '__main__':
