@@ -3,9 +3,9 @@ from utils import data_quality_check
 
 def data_pipeline(url: str):
     try:
-        print("[INFO]: 🕓 Starting processing for monthly enrollment data\n")
+        print('[INFO]: 🕓 Starting processing for monthly enrollment data\n')
         process_monthly_enrollment_data(url)
-        print("[SUCCESS]: ✅ Monthly Enrollment Data successfully processed \n")
+        print('[SUCCESS]: ✅ Monthly Enrollment Data successfully processed \n')
     except ValueError as e:
         print('[FAIL]: 🟥 An error occurred in the Monthly enrollment method\n')
         
