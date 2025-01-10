@@ -1,7 +1,22 @@
 import pandas as pd
+import numpy
 import json
+import math
 
 from datetime import datetime
+
+
+def null_check(d):
+    """
+    In the Medicare Monthly Enrollment, missing data comes in as
+    an asterisks(*). changing to NaN, whcih is a special floating-point
+    value
+    """
+    if d == "*":
+        d = math.nan
+        return d
+    else:
+        return d
 
 def find_char(file: str, char_to_find: str)->int:
     total = 0
@@ -22,17 +37,20 @@ def dict_items_to_int(data: dict)->dict:
     is not JSON serializable
     """
     result = {}
-    count = 0
     
     # loop through dict vaules
     keys = [keys for keys in data.keys()]
     values = [values for values in data.values()]
     for i in range(len(keys)):
-        # TODO: check dtype
         result.update({keys[i]: values[i]})
+        # check dtype using numpy
+        # if type(values[i]) == numpy.dtypes.ObjectDType:
+        #     result.update({keys[i]: 'STRING'})
+        # else:
+        #     result.update({keys[i]: 'INTEGER'})
+
 
     return result
-
 
 def data_quality_check():
     todays_date = datetime.now()

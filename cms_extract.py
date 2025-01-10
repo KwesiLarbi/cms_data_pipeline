@@ -3,6 +3,7 @@ import io
 import pandas as pd
 
 from datetime import datetime
+from utils import null_check
 
 def process_monthly_enrollment_data(url):
     try:
@@ -37,15 +38,15 @@ def process_monthly_enrollment_data(url):
 
             for i in data:
                 monthly_enrollment = {
-                    'year': i['YEAR'],
-                    'month': i['MONTH'],
-                    'state': i['BENE_STATE_ABRVTN'],
-                    'total_beneficiaries': i['TOT_BENES'],
-                    'male_total_beneficiaries': i['MALE_TOT_BENES'],
-                    'female_total_beneficiaries': i['FEMALE_TOT_BENES'],
-                    'black_total_beneficiaries': i['BLACK_TOT_BENES'],
-                    'white_total_beneficiaries': i['WHITE_TOT_BENES'],
-                    'hspnc_total_beneficiaries': i['HSPNC_TOT_BENES']
+                    'year': str(i['YEAR']),
+                    'month': str(i['MONTH']),
+                    'state': str(i['BENE_STATE_ABRVTN']),
+                    'total_beneficiaries': null_check(i['TOT_BENES']),
+                    'male_total_beneficiaries': null_check(i['MALE_TOT_BENES']),
+                    'female_total_beneficiaries': null_check(i['FEMALE_TOT_BENES']),
+                    'black_total_beneficiaries': null_check(i['BLACK_TOT_BENES']),
+                    'white_total_beneficiaries': null_check(i['WHITE_TOT_BENES']),
+                    'hspnc_total_beneficiaries': null_check(i['HSPNC_TOT_BENES'])
                 }
                 monthly_enrollments.append(monthly_enrollment)
             
