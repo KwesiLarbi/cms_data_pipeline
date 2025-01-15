@@ -20,7 +20,7 @@ The Medicare Monthly Enrollment data provides current monthly information on the
 
 * MALE_TOT_BENES (NUMERIC): Count of male Medicare beneficiaries
 
-* FEMALE_TOT_BENES (NUMERIC):Count of female Medicare beneficiaries
+* FEMALE_TOT_BENES (NUMERIC): Count of female Medicare beneficiaries
 
 * BLACK_TOT_BENES (NUMERIC): Count of non-Hispanic black or African American beneficiaries.
 
