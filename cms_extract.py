@@ -38,15 +38,22 @@ def process_monthly_enrollment_data(url):
 
             for i in data:
                 monthly_enrollment = {
-                    'year': str(i['YEAR']),
-                    'month': str(i['MONTH']),
-                    'state': str(i['BENE_STATE_ABRVTN']),
-                    'total_beneficiaries': null_check(i['TOT_BENES']),
-                    'male_total_beneficiaries': null_check(i['MALE_TOT_BENES']),
-                    'female_total_beneficiaries': null_check(i['FEMALE_TOT_BENES']),
-                    'black_total_beneficiaries': null_check(i['BLACK_TOT_BENES']),
-                    'white_total_beneficiaries': null_check(i['WHITE_TOT_BENES']),
-                    'hspnc_total_beneficiaries': null_check(i['HSPNC_TOT_BENES'])
+                    'year':                                     str(i['YEAR']),
+                    'month':                                    str(i['MONTH']),
+                    'state':                                    str(i['BENE_STATE_ABRVTN']),
+                    'tot_benes':                                null_check(i['TOT_BENES']),
+                    'male_tot_benes':                           null_check(i['MALE_TOT_BENES']),
+                    'female_tot_benes':                         null_check(i['FEMALE_TOT_BENES']),
+                    'black_tot_benes':                          null_check(i['BLACK_TOT_BENES']),
+                    'white_tot_Benes':                          null_check(i['WHITE_TOT_BENES']),
+                    'hspnc_tot_benes':                          null_check(i['HSPNC_TOT_BENES']),
+                    'prscrptn_drug_tot_benes':                  null_check(i['PRSCRPTN_DRUG_TOT_BENES']),
+                    'prscrptn_drug_pdp_benes':                  null_check(i['PRSCRPTN_DRUG_PDP_BENES']),
+                    'prscrptn_drug_mapd_benes':                 null_check(i['PRSCRPTN_DRUG_MAPD_BENES']),
+                    'prscrptn_drug_deemed_eligible_lis_benes':  null_check(i['PRSCRPTN_DRUG_DEEMED_ELIGIBLE_FULL_LIS_BENES']),
+                    'prscrptn_drug_full_lis_benes':             null_check(i['PRSCRPTN_DRUG_FULL_LIS_BENES']),
+                    'prscrptn_drug_partial_lis_benes':          null_check(i['PRSCRPTN_DRUG_PARTIAL_LIS_BENES']),
+                    'prscrptn_drug_no_lis_benes':               null_check(i['PRSCRPTN_DRUG_NO_LIS_BENES'])
                 }
                 monthly_enrollments.append(monthly_enrollment)
             
