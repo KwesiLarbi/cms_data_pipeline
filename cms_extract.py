@@ -3,7 +3,7 @@ import io
 import pandas as pd
 
 from datetime import datetime
-from utils import null_check
+from utils import null_check, replace_year_value
 
 def retrieve_json_data(url)->list:
     """Dealing with a multidiminsional array/list: [[dict1, dict2, dictN], [[dict1, dict2, dictN]]]"""
@@ -56,7 +56,7 @@ def process_monthly_enrollment_data(url):
             for j in range(len(i)):
                 monthly_enrollment = {
                     'year':                                     str(i[j]['YEAR']),
-                    'month':                                    str(i[j]['MONTH']),
+                    'month':                                    replace_year_value(str(i[j]['MONTH'])),
                     'state':                                    str(i[j]['BENE_STATE_ABRVTN']),
                     'tot_benes':                                null_check(i[j]['TOT_BENES']),
                     'male_tot_benes':                           null_check(i[j]['MALE_TOT_BENES']),

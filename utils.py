@@ -5,6 +5,14 @@ import math
 
 from datetime import datetime
 
+def replace_year_value(s: str)->str:
+    """
+    In the Medicare Monthly Enrollment data set, if no month is given, 
+    then Year is what is used as N/A
+    """
+    if s == 'Year':
+        s = 'N/A'
+    return s
 
 def null_check(d):
     """
@@ -12,7 +20,7 @@ def null_check(d):
     an asterisks(*). changing to NaN, whcih is a special floating-point
     value
     """
-    if d == "*":
+    if d == '*':
         d = math.nan
         return d
     else:
